@@ -58,3 +58,18 @@ yum remove tmux
 
 #you can do this with any services
 
+
+**#Disable passwordless root access to mysql**
+
+mysql_secure_installation
+
+Set root password? y
+
+Remove anonymous users? y
+
+Disallow root login remotely? y
+
+Remove test database and access to it? y
+
+Reload privilege tables now? y
+
