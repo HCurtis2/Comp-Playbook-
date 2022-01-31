@@ -4,6 +4,7 @@
 
 
 **###Disable root login for ssh (Haric Curtis)**
+
 Edit: /etc/ssh/sshd_config
 
 Change: PermitRootLogin yes
@@ -14,6 +15,7 @@ Run: service sshd restart
 
 
 **###How to enable and set up Firewalld**
+
 sudo systemctl start firewalld
 
 firewall-cmd --permenant --zone=public --add-port=80/tcp
@@ -28,6 +30,7 @@ sudo systemctl enable firewalld
 
 
 **###Change SSH port (Haric Curtis)**
+
 Edit: /etc/ssh/sshd_config
 
 Change: #Port 22
