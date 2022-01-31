@@ -1,4 +1,0 @@
-run firwalld
-#Change Root Password
-
-sudo passwd root
