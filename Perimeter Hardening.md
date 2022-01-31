@@ -43,6 +43,6 @@ Run: service sshd restart
 
 Enter: ~.ssh/
 
-`echo "" > authorized_keys`
+echo "" > authorized_keys
 
-`echo "" > id_rsa_pwn.pub`
+echo "" > id_rsa_pwn.pub
