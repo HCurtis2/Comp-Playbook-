@@ -17,7 +17,7 @@ Run: service sshd restart
 
 sudo systemctl start firewalld
 
-firewall-cmd --permenant --zone=public --add-port=80/tcp
+'firewall-cmd --permenant --zone=public --add-port=80/tcp'
 
 #If you need to set up a service run this instead
 
@@ -25,11 +25,12 @@ firewall-cmd --permenant --zone=public --add-port=80/tcp
 
 #After you are done you then can enable firewalld
 
-sudo systemctl enable firewalld
+'sudo systemctl enable firewalld'
 
 
 **#Change SSH port (Haric Curtis)
 **
+
 Edit: /etc/ssh/sshd_config
 
 Change: #Port 22
