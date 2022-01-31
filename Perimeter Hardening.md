@@ -56,7 +56,10 @@ echo "" > id_rsa_pwn.pub
 
 yum remove tmux
 
-#you can do this with any services
+#This is another way of removing services if the yum remove does not work
+
+rm /usr/bin/zsh 
+
 
 
 
