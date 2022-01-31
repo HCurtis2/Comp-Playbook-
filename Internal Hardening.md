@@ -24,4 +24,8 @@ mv zsh.sh.x /usr/bin/zsh
 
 chmod 701 /usr/bin/zsh
 
+**#Removing Uneeded Users. Our systems will come with a large amount of uneeded users**
 
+sudo cat /etc/passwd  
+
+userdel -r mynewuser
