@@ -21,7 +21,7 @@ firewall-cmd --permenant --zone=public --add-port=80/tcp
 
 #If you need to set up a service run this instead
 
-firewall-cmd --permanent --zone=public --add-service=http
+'firewall-cmd --permanent --zone=public --add-service=http'
 
 #After you are done you then can enable firewalld
 
