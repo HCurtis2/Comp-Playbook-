@@ -1,6 +1,5 @@
 
 
-**#Change Root Password
-**
+**#Change Root Password**
 
 sudo passwd root
