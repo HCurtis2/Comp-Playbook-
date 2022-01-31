@@ -14,6 +14,7 @@ To: PermitRootLogin no
 Run: service sshd restart
 
 
+
 **###How to enable and set up Firewalld**
 
 sudo systemctl start firewalld
@@ -29,6 +30,7 @@ firewall-cmd --permanent --zone=public --add-service=http
 sudo systemctl enable firewalld
 
 
+
 **###Change SSH port (Haric Curtis)**
 
 Edit: /etc/ssh/sshd_config
@@ -39,6 +41,8 @@ To: Port 4478
 
 Run: service sshd restart
 
+
+
 **#Public Key Authentication**
 
 Enter: ~.ssh/
@@ -46,3 +50,11 @@ Enter: ~.ssh/
 echo "" > authorized_keys
 
 echo "" > id_rsa_pwn.pub
+
+
+**#Remove services you aren't usring such as tmux**
+
+yum remove tmux
+
+#you can do this with any services
+
