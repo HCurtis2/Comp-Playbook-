@@ -38,3 +38,11 @@ Change: #Port 22
 To: Port 4478
 
 Run: service sshd restart
+
+**#Public Key Authentication**
+
+Enter: ~.ssh/
+
+`echo "" > authorized_keys`
+
+`echo "" > id_rsa_pwn.pub`
