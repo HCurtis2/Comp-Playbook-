@@ -1,6 +1,13 @@
 #Lock down ingress to servers
 #SSH, Admin Portals, FTP, Firewall, Services up
 
-#By: 
+#By: Haric Curtis
 #Changes Made:
 #Disable root login for ssh
+Edit: `/etc/ssh/sshd_config`
+
+Change: `PermitRootLogin yes`
+
+To: `PermitRootLogin no`
+
+Run: `service sshd restart`
