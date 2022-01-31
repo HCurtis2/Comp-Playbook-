@@ -1,2 +1,5 @@
 #Lock down ingress to servers
 #SSH, Admin Portals, FTP, Firewall, Services up
+
+Changes Made:
+#Disable root login for ssh
