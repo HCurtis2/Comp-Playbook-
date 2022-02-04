@@ -77,3 +77,15 @@ Remove test database and access to it? y
 
 Reload privilege tables now? y
 
+**#Disable anonymous FTP**
+
+cd /etc/vsftpd
+
+vim vsftpd.conf
+
+Change: anonymous_enable=YES
+
+To: anonymous_enable=NO
+
+service vsftpd restart
+
