@@ -6,8 +6,7 @@ sudo passwd root
 
 **#Update your services**
 
-
-
+sudo apt update
 
 **#How to create a pkill command/script when going through this script just change the command name**
 
