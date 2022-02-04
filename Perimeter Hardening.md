@@ -89,3 +89,22 @@ To: anonymous_enable=NO
 
 service vsftpd restart
 
+
+**#Disable anonymous FTP upload**
+
+cd /etc/vsftpd
+
+vim vsftpd.conf
+
+Change: anon_upload_enable=YES
+
+To: anon_upload_enable=NO
+
+
+
+Change: anon_mkdir_write_enable=YES
+
+To: anon_mkdir_write_enable=NO
+
+service vsftpd restart
+
