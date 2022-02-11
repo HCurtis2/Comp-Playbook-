@@ -8,24 +8,6 @@ sudo passwd root
 
 sudo apt update
 
-**#How to create a pkill command/script when going through this script just change the command name can be used with netcat,id,whoami etc**
-
-Enter: /tmp
-
-sudo vim zsh.sh
-
-#!/bin/bash
-curl -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST --data "{\"content\": \" '"$USER"' Tried to run zsh shell on '"$HOSTNAME"' \"}" NEED A UPDATED LINK HERE >/dev/null 2>/dev/null
-
-sudo apt-get install shc
-
-shc -f zsh.sh
-
-#zsh.x will be a binary
-
-mv zsh.sh.x /usr/bin/zsh
-
-chmod 701 /usr/bin/zsh
 
 **#Removing Uneeded Users. Our systems will come with a large amount of uneeded users**
 
