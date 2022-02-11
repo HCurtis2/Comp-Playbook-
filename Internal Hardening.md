@@ -8,7 +8,7 @@ sudo passwd root
 
 sudo apt update
 
-**#How to create a pkill command/script when going through this script just change the command name**
+**#How to create a pkill command/script when going through this script just change the command name can be used with netcat,id,whoami etc**
 
 Enter: /tmp
 
