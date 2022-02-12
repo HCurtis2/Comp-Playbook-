@@ -115,7 +115,7 @@ service vsftpd restart
 
 
 
-***#Using Ip Tables**
+**##Using Ip Tables**
 
 This is how you ban an IP when using IP tables
 iptables -A INPUT -s XXX.XXX.XXX.XXX -j DROP
