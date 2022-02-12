@@ -108,3 +108,9 @@ sudo fail2ban-client set sshd unbanip {ip goes here}
 
 #Ban an IP:
 sudo fail2ban-client set sshd banip {ip goes here}
+
+
+
+
+Add to document SAM {apache with fail2ban}
+https://www.digitalocean.com/community/tutorials/how-to-protect-an-apache-server-with-fail2ban-on-ubuntu-14-04
