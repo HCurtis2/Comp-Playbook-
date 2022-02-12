@@ -116,9 +116,23 @@ service vsftpd restart
 
 
 **##Using Ip Tables**
+sudo apt-get install iptables
 
-This is how you ban an IP when using IP tables
+sudo apt-get install iptables-persistent
+
+#Check status
+
+sudo iptables -L
+
+#Open Specific ports
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+
+#This is how you ban an IP when using IP tables
+
 iptables -A INPUT -s XXX.XXX.XXX.XXX -j DROP
 
-How to check status/rules of your iptables status 
-sudo iptables -S
+#For Debian Baseds systems
+sudo /sbin/iptables–save
+
+#For Red-hat Systems
+sudo /sbin/service iptables save
