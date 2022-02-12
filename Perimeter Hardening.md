@@ -29,6 +29,10 @@ After you are done you then can enable firewalld
 
 sudo systemctl enable firewalld
 
+#How to ban a specific IP with firewalld 
+
+firewall-cmd --add-rich-rule='rule family=ipv4 source address=x.x.x.x reject' --permanent
+
 
 
 ### Change SSH port (Haric Curtis)
@@ -108,3 +112,12 @@ To: anon_mkdir_write_enable=NO
 
 service vsftpd restart
 
+
+
+
+***#Using Ip Tables**
+#This is how you ban an IP when using IP tables
+iptables -A INPUT -s XXX.XXX.XXX.XXX -j DROP
+
+#How to check status/rules of your iptables status 
+sudo iptables -S
