@@ -1,3 +1,12 @@
+MARKDOWN SYNTAX
+
+==============////////////////==============
+
+https://www.markdownguide.org/cheat-sheet/
+
+==============////////////////==============
+
+
 # Lock down ingress to servers
 # SSH, Admin Portals, FTP, Firewall, Services up
 
@@ -13,7 +22,7 @@ To: `PermitRootLogin no`
 
 Run: `service sshd restart`
 
-
+-----
 
 ### How to enable and set up Firewalld 
 
@@ -42,41 +51,58 @@ How to ban a specific IP with firewalld
 firewall-cmd --add-rich-rule='rule family=ipv4 source address=x.x.x.x reject' --permanent
 ```
 
-
+-----
 
 ### Change SSH port (Haric Curtis)
 
-Edit: /etc/ssh/sshd_config
+Edit: `/etc/ssh/sshd_config`
 
-Change: #Port 22
+Change: `#Port 22`
 
-To: Port 4478
+To: `Port 4478`
 
-Run: service sshd restart
+Run: `service sshd restart`
 
-
-
-**#Public Key Authentication**
-
-Enter: ~.ssh/
-
-echo "" > authorized_keys
-
-echo "" > id_rsa_pwn.pub
-
-
-**#Remove services you aren't usring such as tmux**
-
-yum remove tmux
-
-#This is another way of removing services if the yum remove does not work
-
-rm /usr/bin/zsh 
+-----
 
 
 
+### Remove existing SSH keys
+This should be done for all users `/home/<user>/.ssh`
 
-**#Disable passwordless root access to mysql**
+```bash
+cd ~/.ssh/
+
+rm *
+```
+Make sure to generate new keys and export the private key from the server. *DO NOT LEAVE THE PRIVATE KEY ON THE SERVER*
+
+-----
+
+
+### Remove packages that are not needed
+
+`apt-get` or `yum`
+
+```bash
+yum remove <package>
+```
+```bash
+apt-get remove <package>
+```
+
+#### This is another way of removing services if the yum remove does not work
+
+```bash
+rm /usr/bin/<binary-name>
+```
+IE: `/usr/bin/zsh`
+
+-----
+
+
+
+### #Disable passwordless root access to mysql
 
 mysql_secure_installation
 
