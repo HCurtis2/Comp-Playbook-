@@ -1,17 +1,24 @@
-#fail2ban on CentOS 
+# fail2ban on CentOS
+
+```bash
 yum install epel-release
 yum install fail2ban fail2ban-systemd
 yum update -y selinux-policy*
 cp /etc/fail2ban/fail2ban.conf /etc/fail2ban/fail2ban.local
 vim /etc/fail2ban/jail.local
+```
+
 #Inside jail.local
  #Ignoreip: Selects the list of IP addresses that will not be banned.
  #Ban: Determines the duration in seconds during which a host is banned after a number of failed attempts.
  #Findtime: This is the parameter used for checking if a host is banned or not. When a host generates maxretry in its last findtime, it is banned.
  #Maxretry: This parameter sets the limit for the number of retries by a host. If the limit is exceeded, the host is banned.
 
+```bash
 vim /etc/fail2ban/jail.d/sshd.local
+```
 
+```ini
 #Inside sshd.local  
   [sshd]
   enabled = true
@@ -20,11 +27,14 @@ vim /etc/fail2ban/jail.d/sshd.local
   logpath = %(sshd_log)s
   maxretry = 5
   bantime = 86400
-  
+```
+
+```bash
 systemctl enable firewalld
 systemctl start firewalld
 systemctl enable fail2ban
 systemctl start fail2ban
+```
 
 #Tracking Failed login attempts
 cat /var/log/secure | grep 'Failed password'
