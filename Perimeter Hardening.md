@@ -5,33 +5,42 @@
 
 ### Disable root login for ssh (Haric Curtis)
 
-Edit: /etc/ssh/sshd_config
+Edit: `/etc/ssh/sshd_config`
 
-Change: PermitRootLogin yes
+Change: `PermitRootLogin yes`
 
-To: PermitRootLogin no
+To: `PermitRootLogin no`
 
-Run: service sshd restart
+Run: `service sshd restart`
 
 
 
 ### How to enable and set up Firewalld 
 
+```bash
 sudo systemctl start firewalld
 
 firewall-cmd --permenant --zone=public --add-port=80/tcp
 
+```
+
 If you need to set up a service run this instead
 
+```bash
 firewall-cmd --permanent --zone=public --add-service=http
+```
 
 After you are done you then can enable firewalld
 
+```bash
 sudo systemctl enable firewalld
+```
 
-#How to ban a specific IP with firewalld 
+How to ban a specific IP with firewalld 
 
+```bash
 firewall-cmd --add-rich-rule='rule family=ipv4 source address=x.x.x.x reject' --permanent
+```
 
 
 
