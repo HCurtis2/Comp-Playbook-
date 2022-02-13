@@ -14,12 +14,12 @@ vim /etc/fail2ban/jail.local
  #Findtime: This is the parameter used for checking if a host is banned or not. When a host generates maxretry in its last findtime, it is banned.
  #Maxretry: This parameter sets the limit for the number of retries by a host. If the limit is exceeded, the host is banned.
 
+Edit `sshd.local`
 ```bash
 vim /etc/fail2ban/jail.d/sshd.local
 ```
 
 ```ini
-#Inside sshd.local  
   [sshd]
   enabled = true
   port = ssh
