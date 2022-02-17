@@ -150,14 +150,15 @@ service vsftpd restart
 
 
 
-**##Using Ip Tables**
-sudo apt-get install iptables
+###Using Ip Tables
 
-sudo apt-get install iptables-persistent
+'''sudo apt-get install iptables
+
+sudo apt-get install iptables-persistent'''
 
 #Check status
 
-sudo iptables -L
+'''sudo iptables -L'''
 
 #Open Specific ports
 
