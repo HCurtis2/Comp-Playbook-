@@ -163,7 +163,6 @@ sudo iptables -L
 sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
 #This is how you ban an IP when using IP tables
-
 iptables -A INPUT -s XXX.XXX.XXX.XXX -j DROP
 
 #For Debian Baseds systems
@@ -171,3 +170,6 @@ sudo /sbin/iptables–save
 
 #For Red-hat Systems
 sudo /sbin/service iptables save
+
+#Save your settings
+service iptables save
