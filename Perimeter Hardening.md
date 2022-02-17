@@ -104,7 +104,7 @@ IE: `/usr/bin/zsh`
 
 ### Disable passwordless root access to mysql
 
-'''mysql_secure_installation'''
+'''mysql_secure_installation
 
 Set root password? y
 
@@ -114,8 +114,10 @@ Disallow root login remotely? y
 
 Remove test database and access to it? y
 
-Reload privilege tables now? y'''
-''''
+Reload privilege tables now? y
+'''
+
+----
 
 **#Disable anonymous FTP**
 
