@@ -186,3 +186,12 @@ sudo /sbin/service iptables save
 #### Save your settings
 
 service iptables save
+
+
+# Changing IP ports sudo ufw allow "port #"
+
+### For a port range use the command 
+
+sudo ufw allow #:#
+
+sudo ufw enable sudo ufw reload
