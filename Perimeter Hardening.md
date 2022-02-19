@@ -159,19 +159,19 @@ service vsftpd restart
 
 sudo apt-get install iptables-persistent'''
 
-## Check status
+### Check status
 
 '''sudo iptables -L'''
 
-## How to delete a port after checking status
+### How to delete a port after checking status
 
 sudo iptables -D INPUT 3
 
-## Open Specific ports
+### Open Specific ports
 
 sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
-## This is how you ban an IP when using IP tables
+### This is how you ban an IP when using IP tables
 
 iptables -A INPUT -s XXX.XXX.XXX.XXX -j DROP
 
