@@ -24,3 +24,10 @@ vim sshd_config
 AllowUsers blueteam scorecheck01 scorecheck02 scorecheck03 greenteam02
 
 service sshd restart
+
+## Installing a lse.sh and checking everything that is wrong with it 
+
+wget "https://github.com/diego-treitos/linux-smart-enumeration/raw/master/lse.sh" -O lse.sh;chmod 700 lse.sh
+
+sudo lse.sh
+### Copy the output and save locally on your machine and make sure to delete the lse.sh when you are done with it. ADDITIONALLY MAKE SURE TO DELETE YOUR HISTORY CONSTANTLY 
