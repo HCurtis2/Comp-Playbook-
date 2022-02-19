@@ -163,6 +163,10 @@ sudo apt-get install iptables-persistent'''
 
 '''sudo iptables -L'''
 
+#How to delete a port after checking status
+
+sudo iptables -D INPUT 3
+
 #Open Specific ports
 
 sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
