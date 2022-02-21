@@ -207,16 +207,12 @@ sudo apt install nginx
 
 sudo ufw 80/tcp
 
-sudo ufw status
-  -verification
+sudo ufw status |  -verification
 
-ip a
-  -IPV4 Address: 2nd Adapter: "inet"
+ip a | -IPV4 Address 2nd Adapter: 'inet'
   
-go to web browser
-  -http://[ip address from inet]
+go to web browser |  -http://[ip address from inet]
   
 should show Nginx webpage
 
-systemctl status nginx
-  -verification of server working
+systemctl status nginx |  -verification of server working
