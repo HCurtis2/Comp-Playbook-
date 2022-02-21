@@ -238,3 +238,45 @@ go to web browser |  -http://[ip address from inet]
 should show Nginx webpage
 
 systemctl status nginx |  -verification of server working
+
+-----
+
+### Configuring Nginx to Use the PHP
+
+sudo apt install php-fpm php-mysql
+
+sudo mkdir /var/www/your_domain
+
+sudo chown -R $USER:$USER /var/www/your_domain
+
+sudo nano /etc/nginx/sites-available/your_domain
+
+ server {
+    listen 80;
+    server_name your_domain www.your_domain;
+    root /var/www/your_domain;
+
+    index index.html index.htm index.php;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+     }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+}
+
+sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled
+
+sudo unlink /etc/nginx/sites-enabled/default
+
+sudo nginx -t: |  Configuration Test
+
+sudo systemctl reload nginx: |  Reload nginx
