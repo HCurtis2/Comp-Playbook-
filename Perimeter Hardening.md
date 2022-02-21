@@ -99,8 +99,9 @@ rm /usr/bin/<binary-name>
 IE: `/usr/bin/zsh`
 
 -----
+### Installing mysql server
 
-
+sudo apt install mysql-server
 
 ### Disable passwordless root access to mysql
 
@@ -116,6 +117,27 @@ Remove test database and access to it? y
 
 Reload privilege tables now? y
 '''
+----
+### Mysql Password Setup
+ After disabling passwordless root access to mysql
+ 
+VALIDATE PASSWORD PLUGIN can be used to test passwords
+and improve security. It checks the strength of password
+and allows the users to set only those passwords which are
+secure enough. Would you like to setup VALIDATE PASSWORD plugin?
+
+Press y|Y for Yes, any other key for No:  Press 'y'
+
+Password Configurations:
+There are three levels of password validation policy:
+
+LOW    Length >= 8
+MEDIUM Length >= 8, numeric, mixed case, and special characters
+STRONG Length >= 8, numeric, mixed case, special characters and dictionary file
+
+Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 1
+
+MUST choose 1
 
 ----
 
