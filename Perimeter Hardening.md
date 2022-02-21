@@ -198,3 +198,25 @@ sudo ufw enable sudo ufw reload
 
 sudo ufw deny #:#
 
+------
+# Installing and Configuring an Nginx Server
+
+sudo apt update
+
+sudo apt install nginx
+
+sudo ufw 80/tcp
+
+sudo ufw status
+  -verification
+
+ip a
+  -IPV4 Address: 2nd Adapter: "inet"
+  
+go to web browser
+  -http://[ip address from inet]
+  
+should show Nginx webpage
+
+systemctl status nginx
+  -verification of server working
