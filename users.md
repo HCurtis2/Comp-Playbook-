@@ -10,3 +10,4 @@ usermod -a -G "groupname' username
 groupdel "groupname"
 
 
+
