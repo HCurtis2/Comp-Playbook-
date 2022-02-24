@@ -1,8 +1,8 @@
 # Backdoor 
-## Install ncat on the locat box
+## Install ncat on the local box
 ### Apt-get (Install)
-'sudo apt-get update'
-'sudo apt-get -y install ncat'
+'sudo apt-get update''
+'sudo apt-get -y install ncat''
 
 ### Apt (Install)
 'sudo apt update'
