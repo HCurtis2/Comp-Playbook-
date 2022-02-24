@@ -49,8 +49,12 @@ How to ban a specific IP with firewalld
 
 ```bash
 firewall-cmd --add-rich-rule='rule family=ipv4 source address=x.x.x.x reject' --permanent
-```
 
+list all open port numbers 
+
+sudo firewall-cmd --list-all
+
+```
 -----
 
 ### Change SSH port (Haric Curtis)
