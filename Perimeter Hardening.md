@@ -54,6 +54,8 @@ list all open port numbers
 
 sudo firewall-cmd --list-all
 
+sudo firewall-cmd --reload
+
 ```
 -----
 
