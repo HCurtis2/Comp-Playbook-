@@ -14,7 +14,7 @@ cat /.ssh/authorized_keys
 # To find active users on a ssh port for example
 'netstat | grep ssh'
 'ss -a | grep ssh' 
-## Make sure to make note of these thta are open and listening prior to the attack 
+## Make sure to make note of these that are open and listening prior to the attack 
 
 1) they change something or notify you via inject
 2) you see a new shell open when you use the who or last | grep still or w command 
