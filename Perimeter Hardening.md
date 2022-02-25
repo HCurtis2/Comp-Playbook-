@@ -327,6 +327,11 @@ sudo ufw status
 ```
 #### If you have other applications or services to allow, make sure you configure your firewall to allow traffic. For example, using the ``` sudo ufw allow 'OpenSSH' ``` command will enable secure, encrypted logins over the network.
 
+### If ``` sudo ufw status ``` shows ``` Status: inactive ``` then run:
+```
+sudo ufw enable
+```
+### Then try ``` sudo ufw status ``` again
 
 # Apache Configuration
 ## Apache Service Controls
