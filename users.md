@@ -23,6 +23,7 @@ passwd "username"
 sudo vim common-password
 ### in the vim change your per package modules to below that way it keeps a sha 256 algorithm
 password  [success=1 default=ignore] pam_unix.so obscure sha256
+#### this will have it so whenever a new user is made it will have this password hashing alogrithm. We will have to change current user passwords because it will not do it automatically. 
 
 
 
