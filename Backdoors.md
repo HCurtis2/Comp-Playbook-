@@ -16,6 +16,3 @@ cat /.ssh/authorized_keys
 'ss -a | grep ssh' 
 ## Make sure to make note of these that are open and listening prior to the attack 
 
-1) they change something or notify you via inject
-2) you see a new shell open when you use the who or last | grep still or w command 
-3) you see an active network socket for you ssh port netstat | grep ssh or ss -a | grep ssh
