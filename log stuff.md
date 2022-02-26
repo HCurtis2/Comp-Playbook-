@@ -1,4 +1,4 @@
-# Authentication Logs
+# Authentication Logs/ Syslog 
 
 CentOS `/var/log/secure` valid login example.
 
