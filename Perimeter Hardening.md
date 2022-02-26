@@ -371,6 +371,85 @@ sudo systemctl reload apache2.service
 
 ### ``` /etc/apache2/sites-enabled ``` – This directory holds websites that are ready to serve clients. The a2ensite command is used on a virtual host file in the sites-available directory to add sites to this location.
 
+# ModSecurity
+## Step #1: Installation
+```
+sudo apt-get update
+sudo apt install libapache2-mod-security2 -y
+sudo a2enmod headers
+sudo systemctl restart apache2
+```
+
+## Step #2: Configuration
+### Remove .recommended extenstion from ModSecurity config file
+```
+ sudo cp /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf
+```
+### With a text editor such as vim, open /etc/modsecurity/modsecurity.conf and change the value for SecRuleEngine to On: 
+```
+# -- Rule engine initialization ----------------------------------------------
+
+# Enable ModSecurity, attaching it to every transaction. Use detection
+# only to start with, because that minimises the chances of post-installation
+# disruption.
+#
+SecRuleEngine On
+...
+
+sudo systemctl restart apache2
+```
+
+## Step #3: Setting Up OWASP ModSecurity Core Rule Set
+# Delete current rule set that comes with prepackaged with ModSecurity by running the following command:
+```
+sudo rm -rf /usr/share/modsecurity-crs
+```
+# Install modsecurity git
+```
+sudo apt install git
+```
+# Clone the OWASP-CRS GitHub repository into the /usr/share/modsecurity-crs directory:
+```
+sudo git clone https://github.com/coreruleset/coreruleset /usr/share/modsecurity-crs
+```
+# Rename the crs-setup.conf.example to crs-setup.conf:
+```
+sudo mv /usr/share/modsecurity-crs/crs-setup.conf.example /usr/share/modsecurity-crs/crs-setup.conf
+```
+# Rename the default request exclusion rule file:
+```
+sudo mv /usr/share/modsecurity-crs/rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example /usr/share/modsecurity-crs/rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf
+```
+
+## Step # 4: Enabling ModSecurity in Apache 2
+# Using a text editor such as vim, edit the /etc/apache2/mods-available/security2.conf file to include the OWASP-CRS files downloaded:
+```
+File: /etc/apache2/mods-available/security2.conf
+
+<IfModule security2_module>
+        SecDataDir /var/cache/modsecurity
+        Include /usr/share/modsecurity-crs/crs-setup.conf
+        Include /usr/share/modsecurity-crs/rules/*.conf
+</IfModule>
+
+```
+# In /etc/apache2/sites-enabled/000-default.conf file VirtualHost block, include the SecRuleEngine directive set to On.
+```
+File: /etc/apache2/sites-enabled/000-default.conf
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        SecRuleEngine On
+</VirtualHost>
+
+sudo systemctl restart apache2 
+```
+
 
 # Glossary
 ### UFW – Uncomplicated Firewall, a software application that blocks network traffic (usually for security)
