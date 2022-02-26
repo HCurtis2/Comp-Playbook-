@@ -14,7 +14,7 @@ groupdel "groupname"
 cd /etc/passwd
 ## cross check the users that should be there normally. Some will be in the beginning users but most will be towards the end of the etc/passwd file
 passwd "username" 
-
+### cross off the passwords from the list when you have to change the passwords. IE for admin users and things like that. 
 
 
 
