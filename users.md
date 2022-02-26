@@ -25,7 +25,7 @@ sudo vim common-password
 password  [success=1 default=ignore] pam_unix.so obscure sha256
 #### this will have it so whenever a new user is made it will have this password hashing alogrithm. We will have to change current user passwords because it will not do it automatically. 
 
-###Types of hash hardening. 
+### Types of hash hardening. 
 $1$ is MD5
 $2a$ is Blowfish
 $2y$ is Blowfish
