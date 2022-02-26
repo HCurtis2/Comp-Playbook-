@@ -1,5 +1,5 @@
-cat ~/.ssh/authorized_keys
-cd ~/.ssh/
+'cat ~/.ssh/authorized_keys'
+'cd ~/.ssh/'
 
 # check this to see when files are motified
 'ls --full-time'
