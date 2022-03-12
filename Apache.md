@@ -82,5 +82,17 @@ sudo systemctl reload apache2.service
 ### ``` /etc/apache2/sites-enabled ``` – This directory holds websites that are ready to serve clients. The a2ensite command is used on a virtual host file in the sites-available directory to add sites to this location.
 
 
+# Checking Processes 
+## Checking Process of Apache 
+```
+systemctl status apache2
+systemctl status apache
+```
+
+## Checking users 
+```
+ps -ef 
+ps -ejH
+```
 
 
