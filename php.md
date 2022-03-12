@@ -20,10 +20,10 @@ Here is a list of critical items to help secure a webserver using PHP.
 	- `upload_max_filesize = 1M`
 	- Try to keep  `upload_max_filesize` as small as possible. This effects things like reverse shells from being uploaded if you can get it small enough.  Again this will be an issue if your website has a requirement to upload files.
 - Change and RESTRICT a temporary file directory 
-	- (upload_tmp_dir = /var/lib/php/tmp_upload
+	- `upload_tmp_dir = /var/lib/php/tmp_upload`
 	- By default, temporary file uploads are placed in a directory that is writeable by all system users. Lock down where you set this so files cannout execute from the directory.
 - Disable error messages from showing on webpages
-	- `display_errors = 0 ` 
+	- `display_errors = 0` 
 	- `display_startup_errors = 0`
 - Enable a log file
 	- `log_errors = 1` 
