@@ -95,4 +95,16 @@ ps -ef
 ps -ejH
 ```
 
+# Due to the scope of web servers i recommend reading up on this topic. Some critical items listed in an order of importance to look into are:
+### PATCH
+### Run apache, httpd, nginx as a non-priviledged user
+### Disable directory browsing
+### Disable Apache’s following of Symbolic Links
+### Utilize mod_security for apache
+### Enable Apache Logging
+### Disable HTTP trace requests
+### Limit request size
+### Turn off Server Side Includes and CGI Execution
+### Configure Listen ip / port explicitly (no 0.0.0.0)
+
 
