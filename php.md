@@ -9,6 +9,7 @@ Here is a list of critical items to help secure a webserver using PHP.
 	- `max_input_time = 30`
 	- `max_execution_time = 30`
 - Set a tight memory limit ( memory_limit )
+	- memory_limit = 128M
 - Disable showing php version ( expose_php )
 	- `expose_php = Off`
 - Force php to only run via webserver and not direct access (cgi.force_redirect = 1)
