@@ -31,5 +31,6 @@ Here is a list of critical items to help secure a webserver using PHP.
 - Enable a log file
 	- `log_errors = 1` 
 	- `error_log = /home/user/error_log`
+	
 
 ### Make sure to roll the passwords. 
