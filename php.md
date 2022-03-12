@@ -17,7 +17,7 @@ Here is a list of critical items to help secure a webserver using PHP.
 	- `max_input_vars = 100`
 - Limit file upload size
 	- `file_uploads = 1`
-	- `upload_max_filesize = 1M`
+	- `upload_max_filesize = 1M` (could be smaller)
 	- Try to keep  `upload_max_filesize` as small as possible. This effects things like reverse shells from being uploaded if you can get it small enough.  Again this will be an issue if your website has a requirement to upload files.
 - Change and RESTRICT a temporary file directory 
 	- `upload_tmp_dir = /var/lib/php/tmp_upload`
