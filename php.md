@@ -1,4 +1,4 @@
-#php.ini is where the config file is.
+#/web/config/php.ini is where the config file is.
 Here is a list of critical items to help secure a webserver using PHP. 
 - Whitelist include directories 
 	- `open_basedir = "/home/user/public_html:/var/lib/php/tmp_upload:/var/lib/php/session"`
