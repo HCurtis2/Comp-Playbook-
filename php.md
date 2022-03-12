@@ -8,18 +8,19 @@ Here is a list of critical items to help secure a webserver using PHP.
 - Reduce run time / input time 
 	- `max_input_time = 30`
 	- `max_execution_time = 30`
-- Set a tight memory limit ( memory_limit )
+- Set a tight memory limit 
 	- memory_limit = 128M
-- Disable showing php version ( expose_php )
+- Disable showing php version 
 	- `expose_php = Off`
-- Force php to only run via webserver and not direct access (cgi.force_redirect = 1)
+- Force php to only run via webserver and not direct access 
+	- `cgi.force_redirect = 1`
 - Limit input and upload sizes. (post max size can break file uploads. If there is a requirement for large uploads this value needs to be bigger )
 	- `post_max_size = 256K` 
 	- `max_input_vars = 100`
 - Limit file upload size
 	- `file_uploads = 1`
 	- `upload_max_filesize = 1M` (could be smaller)
-	- Try to keep  `upload_max_filesize` as small as possible. This effects things like reverse shells from being uploaded if you can get it small enough.  Again this will be an issue if your website has a requirement to upload files.
+	- Try to keep  `upload_max_filesize` as small as possible. 
 - Change and RESTRICT a temporary file directory 
 	- `upload_tmp_dir = /var/lib/php/tmp_upload`
 	- By default, temporary file uploads are placed in a directory that is writeable by all system users. Lock down where you set this so files cannot execute from the directory.
@@ -29,3 +30,5 @@ Here is a list of critical items to help secure a webserver using PHP.
 - Enable a log file
 	- `log_errors = 1` 
 	- `error_log = /home/user/error_log`
+
+### Make sure to roll the passwords. 
