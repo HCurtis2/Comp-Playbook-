@@ -33,4 +33,5 @@ lse.sh -l 1 -p 0
 Quick Scans
 ```
 lse.sh -l 1 -e /usr,/tmp/,sbin
+```
 > Potential backup download https://web.archive.org/web/20220305230914/https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/master/lse.sh
