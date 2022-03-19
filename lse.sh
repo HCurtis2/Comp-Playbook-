@@ -17,4 +17,20 @@ lse.sh execution
 ```
 sudo ./lse.sh
 ```
+Determine lse.sh verbosity level
+```
+Level 1: lse.sh -s usr,sud -l 1
+Level 2: lse.sh -s usr,sud -l 2
+```
+Process Monitoring
+```
+lse.sh -l 1 -p 120
+```
+Disable Process Monitor
+```
+lse.sh -l 1 -p 0
+```
+Quick Scans
+```
+lse.sh -l 1 -e /usr,/tmp/,sbin
 > Potential backup download https://web.archive.org/web/20220305230914/https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/master/lse.sh
