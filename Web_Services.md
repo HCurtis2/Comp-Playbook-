@@ -1,4 +1,4 @@
-# Web Setvices
+# Web Services
 ```
 - Admin-HTTP
 - API-HTTPS
