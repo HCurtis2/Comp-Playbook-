@@ -12,16 +12,26 @@ groupdel "groupname"
 
 # Check Users/Roll passwords
 cd /etc/passwd
-  -output ex: root:x:0:0:root:/root:/bin/bash
-    -first line: Username
-    -second line: Encrypted Password
-          x = Password Stored in /etc/shadow
-     -third line: User ID Number (UID)
-     -fourth line: User's Group ID number (GID)
-     -fifth line: Full Name of User (GECOS)
-     -sixth line: Home Directory
-     -seventh line: Login Shell
-          Default = /bin/bash
+
+output ex: root:x:0:0:root:/root:/bin/bash
+
+first line: Username
+
+second line: Encrypted Password
+
+x = Password Stored in /etc/shadow
+
+third line: User ID Number (UID)
+
+fourth line: User's Group ID number (GID)
+
+fifth line: Full Name of User (GECOS)
+
+sixth line: Home Directory
+
+seventh line: Login Shell
+
+Default = /bin/bash
 ## List only user names
 awk -F: '{ print $1}' /etc/passwd
 ## cross check the users that should be there normally. Some will be in the beginning users but most will be towards the end of the etc/passwd file
