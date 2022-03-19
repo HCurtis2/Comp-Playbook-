@@ -1,0 +1,37 @@
+## Syntax
+```
+chmod [OPTIONS] [PERMISSIONS] [FILE]
+```
+
+## Access Roles
+```
+owner
+
+group
+
+other
+```
+
+## Access Modes
+```
+read(r)
+
+write(w)
+
+execute(x)
+```
+
+## Listing permissions
+```
+ls -l
+```
+
+# Changing File and Folder Access Permissions
+## Adding Permissions
+```
+chmod [user]+[accessmode]
+```
+## Removing Permissions
+```
+chmod [user]-[accessmode]
+```
