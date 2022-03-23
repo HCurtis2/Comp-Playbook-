@@ -1,0 +1,51 @@
+Cron / Crontab
+
+Cron is a scheduler for running scripts and programs on linux, Normally each user has a crontab. Depending on the distro, you may find the crontab locations sligtly different.
+
+List your cron jobs
+
+crontab -l
+
+List another user's cron jobs
+
+crontab -u USER -l
+
+The two main wais to edit the crontab are using the crontab -e command or to manually edit a cron file.
+
+On some systems, you will cron with items such as cron.hourly, cron.daily,cron.weekly,cron.monthly. These are directories that contain scripts that will run hourly,daily,weekly,monthly, etc... If your system does have these configurted then you shoul audit the /etc/cron.XXXX directories for scripts.
+
+⚠️
+
+Note that these drop in /etc/cron.xxxx run as ROOT...
+
+Crontab locations
+
+There are a few areas that crontab files will be stored.
+
+System crontab: Can contain system tasks for tasks such as auto update or cache cleaning.
+
+/etc/crontab
+
+a 'drop in; directory such as /etc/cron.hourly. Where scripts can be added to and wlll automaticly run.
+
+/etc/cron.d/
+
+The normal location for user tasks to be stored when running crontab -e
+
+/var/spool/cron
+
+Crontab Permissions
+
+You can restrict cron usage for specific users on a white / black list. By creating a cron.allow and cron.deny file, you will be able to restrict what users can run crontab -e
+
+echo <username> >> /etc/cron.d/cron.allow  
+
+echo ALL >> /etc/cron.d/cron.deny
+
+⚠️
+
+Check that sudo crontab -e is also restricted after whitelisting the crontab. You may need to restrict crontab in the sudoers file as well...
+
+Resources
+
+    https://crontab.guru/
