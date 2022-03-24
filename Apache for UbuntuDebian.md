@@ -201,5 +201,163 @@ sudo systemctl restart apache2
 ```
 curl http://<SERVER-IP/DOMAIN>/index.php?exec=/bin/bash
 ```
+#
+#
+#
+#
+#
+#
+#
+# Fail2Ban and apache
+### Step 1
+```
+sudo apt-get update
+sudo apt-get install fail2ban
+```
+### Step 2
+```
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+```
+### Step 3
+```
+sudo nano /etc/fail2ban/jail.local
+```
+### Step 4
+#### Ignore ip 
+##### EXAMPLE:
+```
+/etc/fail2ban/jail.local
+[DEFAULT]
+
+. . .
+ignoreip = 127.0.0.1/8 your_home_IP
+```
+#### Bantime 
+##### EXAMPLE:
+```
+[DEFAULT]
+
+. . .
+bantime = 3600
+```
+#### Findtime/Maxretry
+##### EXAMPLE:
+```
+[DEFAULT]
+
+. . .
+findtime = 3600   # These lines combine to ban clients that fail
+maxretry = 6      # to authenticate 6 times within a half hour.
+```
+### Step 5
+#### To enable log monitoring for Apache login attempts, we will enable the [apache] jail. Edit the enabled directive within this section so that it reads “true”:
+##### EXAMPLE:
+```
+[apache]
+
+enabled  = true
+port     = http,https
+filter   = apache-auth
+logpath  = /var/log/apache/custom_log_location.log
+maxretry = 3
+findtime = 600
+```
+### Step 6 
+#### Instide ```/etc/fail2ban/jail.local``` 
+##### EXAMPLE:
+```
+[apache-noscript]
+
+enabled  = true
+. . .
+```
+### Step 7 
+##### Example:
+```
+[apache-overflows]
+
+enabled  = true
+port     = http,https
+filter   = apache-overflows
+logpath  = /var/log/apache*/*error.log
+maxretry = 2
+
+[apache-badbots]
+
+enabled  = true
+port     = http,https
+filter   = apache-badbots
+logpath  = /var/log/apache*/*error.log
+maxretry = 2
+
+[apache-nohome]
+
+enabled  = true
+port     = http,https
+filter   = apache-nohome
+logpath  = /var/log/apache*/*error.log
+maxretry = 2
+```
+### Step 8
+#### IF TIME (PHP Protection)
+##### EXAMPLE:
+```
+[php-url-fopen]
+
+enabled = true
+port    = http,https
+filter  = php-url-fopen
+logpath = /var/log/apache*/*access.log
+```
+### Step 9 
+```
+sudo service fail2ban restart
+```
+### Step 10
+```
+sudo fail2ban-client status
+```
+##### Example Output:
+```
+Output
+Status
+|- Number of jail:      7
+`- Jail list:           php-url-fopen, apache-overflows, apache-noscript, ssh, apache-badbots, apache-nohome, apache
+```
+### Step 11
+```
+sudo iptables -S
+```
+### Step 12
+```
+sudo fail2ban-client status apache
+```
+### Step 13
+```
+sudo fail2ban-client status apache
+```
+#### UNBANNING IP'S 
+```
+sudo fail2ban-client set apache unbanip <ip goes here>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
