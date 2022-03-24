@@ -106,5 +106,100 @@ ps -ejH
 ### Limit request size
 ### Turn off Server Side Includes and CGI Execution
 ### Configure Listen ip / port explicitly (no 0.0.0.0)
+#
+#
+#
+#
+#
+#
+# Mod Securiry 
+### Step 1 
+```
+sudo apt install libapache2-mod-security2 -y
+```
+### Step 2 
+```
+sudo a2enmod headers
+```
+### Step 3
+```
+sudo systemctl restart apache2
+```
+### Step 4 
+```
+sudo cp /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf
+```
+### Step 5
+#### With a text editor such as vim, open ``` /etc/modsecurity/modsecurity.conf ``` and change the value for SecRuleEngine to On:
+##### EXAMPLE:
+```
+# -- Rule engine initialization ----------------------------------------------
+
+# Enable ModSecurity, attaching it to every transaction. Use detection
+# only to start with, because that minimises the chances of post-installation
+# disruption.
+#
+SecRuleEngine On
+...
+```
+### Step 6 
+```
+sudo systemctl restart apache2
+```
+### Step 7 
+#### OWASP
+```
+sudo rm -rf /usr/share/modsecurity-crs
+```
+### Step 8 
+```
+sudo apt install git
+```
+### Step 9
+```
+sudo git clone https://github.com/coreruleset/coreruleset /usr/share/modsecurity-crs
+```
+### Step 10
+```
+sudo mv /usr/share/modsecurity-crs/crs-setup.conf.example /usr/share/modsecurity-crs/crs-setup.conf
+```
+### Step 11
+```
+sudo mv /usr/share/modsecurity-crs/rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example /usr/share/modsecurity-crs/rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf
+```
+### Step 12
+#### Enabling ModSecurity in Apache 2
+##### Using a text editor such as vim, edit the /etc/apache2/mods-available/security2.conf file to include the OWASP-CRS files you have downloaded:
+###### EXAMPLE:
+```
+<IfModule security2_module>
+        SecDataDir /var/cache/modsecurity
+        Include /usr/share/modsecurity-crs/crs-setup.conf
+        Include /usr/share/modsecurity-crs/rules/*.conf
+</IfModule>
+```
+### Step 13
+##### In /etc/apache2/sites-enabled/000-default.conf file VirtualHost block, include the SecRuleEngine directive set to On.
+###### EXAMPLE:
+```
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        SecRuleEngine On
+</VirtualHost>
+```
+### Step 14
+```
+sudo systemctl restart apache2
+```
+### Step 15
+#### Testing ModSecurity
+```
+curl http://<SERVER-IP/DOMAIN>/index.php?exec=/bin/bash
+```
 
 
