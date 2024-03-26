@@ -9,7 +9,6 @@ usermod -a -G "groupname' username
 
 groupdel "groupname"
 
-
 # Check Users/Roll passwords
 cd /etc/passwd
 
